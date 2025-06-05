@@ -1,0 +1,293 @@
+/* Estilos Gerais e Futurísticos */
+:root {
+    --cor-principal: #8a2be2; /* Azul-violeta */
+    --cor-secundaria: #00ffff; /* Ciano elétrico */
+    --cor-texto: #e0e0e0;
+    --cor-fundo: #1a0033;
+    --font-futurista: 'Orbitron', sans-serif; /* Fonte futurista */
+    --font-conteudo: 'Roboto', sans-serif; /* Fonte legível para conteúdo */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-conteudo);
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    overflow-x: hidden;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Animação de Fundo (Estrelas ou Partículas) */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+    background: radial-gradient(circle, var(--cor-fundo) 0%, rgba(0,0,0,0.8) 100%);
+}
+
+.star {
+    position: absolute;
+    background-color: var(--cor-secundaria);
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 5s infinite ease-in-out forwards;
+    box-shadow: 0 0 5px var(--cor-secundaria), 0 0 10px var(--cor-secundaria);
+}
+
+@keyframes twinkle {
+    0%, 100% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Container Principal e Seções */
+.container {
+    width: 85%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero Section (Seção Principal de Vendas) */
+.hero {
+    text-align: center;
+    padding: 120px 0 80px 0;
+    background: linear-gradient(45deg, rgba(138, 43, 226, 0.2), rgba(0, 255, 255, 0.2));
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    border-bottom: 2px solid var(--cor-principal);
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.1);
+}
+
+.hero h1 {
+    font-family: var(--font-futurista);
+    font-size: 4em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px var(--cor-secundaria), 0 0 30px var(--cor-principal);
+    animation: fadeInScale 2s ease-out forwards;
+    background: linear-gradient(45deg, var(--cor-principal), var(--cor-secundaria));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.4em;
+    opacity: 0;
+    animation: fadeIn 2s ease-out 1s forwards;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    color: var(--cor-texto);
+}
+
+/* Chamada para Ação Principal */
+.cta-hero {
+    display: inline-block;
+    padding: 20px 40px;
+    background: linear-gradient(90deg, var(--cor-principal), var(--cor-secundaria));
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: var(--font-futurista);
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(138, 43, 226, 0.6);
+    border: none;
+    cursor: pointer;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.cta-hero:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.9), 0 0 50px rgba(138, 43, 226, 0.9);
+    background: linear-gradient(90deg, var(--cor-secundaria), var(--cor-principal));
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+/* Seções de Conteúdo */
+.section {
+    padding: 80px 0;
+    margin-bottom: 50px;
+    border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
+}
+
+.section:last-of-type {
+    border-bottom: none;
+}
+
+.section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section h2 {
+    font-family: var(--font-futurista);
+    font-size: 2.8em;
+    color: var(--cor-secundaria);
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 0 0 12px var(--cor-secundaria);
+    line-height: 1.2;
+}
+
+.section h3 {
+    font-family: var(--font-futurista);
+    font-size: 1.8em;
+    color: var(--cor-principal);
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 0 8px rgba(138, 43, 226, 0.5);
+}
+
+.section p, .section ul {
+    font-size: 1.15em;
+    max-width: 800px;
+    margin: 0 auto 25px auto;
+    text-align: center;
+    color: var(--cor-texto);
+}
+
+.section ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+    margin-top: 30px;
+}
+
+.section ul li {
+    padding: 15px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+    position: relative;
+    padding-left: 40px;
+    font-size: 1.1em;
+}
+
+.section ul li:last-child {
+    border-bottom: none;
+}
+
+.section ul li::before {
+    content: '✓';
+    color: var(--cor-secundaria);
+    font-size: 1.8em;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-shadow: 0 0 7px var(--cor-secundaria);
+}
+
+/* Seção de Depoimentos */
+.testimonials {
+    text-align: center;
+}
+
+.testimonial-card {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    max-width: 600px;
+    border-left: 5px solid var(--cor-principal);
+}
+
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: rgba(224, 224, 224, 0.9);
+}
+
+.testimonial-card span {
+    display: block;
+    font-weight: bold;
+    color: var(--cor-secundaria);
+    font-family: var(--font-futurista);
+    font-size: 1em;
+}
+
+/* CTA Final */
+.cta-final {
+    text-align: center;
+    padding: 60px 0;
+    background: linear-gradient(90deg, rgba(138, 43, 226, 0.3), rgba(0, 255, 255, 0.3));
+    border-radius: 10px;
+    margin-top: 50px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.cta-final h2 {
+    font-family: var(--font-futurista);
+    font-size: 3em;
+    color: var(--cor-principal);
+    text-shadow: 0 0 15px var(--cor-principal);
+    margin-bottom: 30px;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+    color: rgba(224, 224, 224, 0.7);
+    border-top: 1px solid rgba(138, 43, 226, 0.3);
+    margin-top: 50px;
+}
+
+/* Animações CSS */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Media Queries para Responsividade Geral */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.8em; }
+    .hero p { font-size: 1.1em; }
+    .cta-hero { font-size: 1.2em; padding: 15px 30px; }
+    .section h2 { font-size: 2em; }
+    .section h3 { font-size: 1.5em; }
+    .section p, .section ul li { font-size: 1em; padding-left: 30px; }
+    .section ul li::before { font-size: 1.5em; }
+    .cta-final h2 { font-size: 2.2em; }
+}
+
+@media (max-width: 480px) {
+    .hero h1 { font-size: 2em; }
+    .cta-hero { font-size: 1em; padding: 12px 25px; }
+    .section h2 { font-size: 1.8em; }
+    .section p, .section ul li { text-align: justify; }
+    .container { width: 95%; }
+}
